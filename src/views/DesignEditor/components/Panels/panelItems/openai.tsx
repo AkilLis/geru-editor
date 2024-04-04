@@ -1,16 +1,11 @@
 import React from "react"
 import { useState,useEffect } from "react"
 import Scrollable from "~/components/Scrollable"
-import { Box, TextArea, Text, Button, Image, Flex, Mask, TapArea, WashAnimated } from "gestalt"
+import { Box, TextArea, Text, Button, Image, Flex, Mask, IconButton,TapArea, WashAnimated } from "gestalt"
 import { motion } from "framer-motion"
 
 export default function () {
   const [input, setInput] = useState("")
-  const [hover, setHover] = useState("dark")
-
-  useEffect(()=>{
-    console.log(hover);
-  },[hover])
   const selcetionsData = [
     {
       src: "https://d110hwq6svvzha.cloudfront.net/geru-by-me/uploads/Kpn_O23i8IS44861fc6COdownload%20(6).png",
@@ -49,7 +44,7 @@ export default function () {
         }}
     >
         <TapArea tapStyle="compress" onTap={()=>setInput(item.text)}>
-        <Box key={index} display="flex" height={90}  padding={1} marginTop={2} onMouseEnter={()=>setHover("light")} onMouseLeave={()=>setHover("dark")}>
+        <Box key={index} display="flex" height={90}  padding={1} marginTop={2} >
         {/*  */}
         {/* <WashAnimated> */}
             <Box column={4}  >
@@ -82,12 +77,26 @@ export default function () {
             Let me turn your imagination into imagery.
           </Text>
           <Box height={10} />
+          <Box paddingX={2} mdPaddingX={3} display="flex" justifyContent="between" alignItems="center" marginTop={2} paddingY={2}>
+       <Box flex="grow">
           <TextArea
             id="headerExample"
             onChange={({ value }) => setInput(value)}
             placeholder="Юу зуруулмаар байна? Бүгдийг нь бичээрэй 🙌"
             value={input}
-          />
+          /></Box>
+          {
+          input.trim() && (
+            <IconButton
+              icon="cancel"
+              accessibilityLabel="cancel"
+              size='sm'
+              iconColor="white"
+              onClick={() => setInput("")}
+              // colo
+            />
+          )
+        }</Box>
           <Box height={6} />
           <Button color="red" size="lg" text="Generate" fullWidth />
 

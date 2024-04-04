@@ -8,7 +8,7 @@ import PanelItem from './PanelItem'
 
 import { styled } from "baseui"
 import { useTranslation } from "react-i18next"
-import { Box, IconButton, Icon as GestaltIcon, Layer, Text, Modal, TapArea, FixedZIndex } from "gestalt"
+import { Box, IconButton, Icon as GestaltIcon, Image, Layer, Text, Modal, TapArea, FixedZIndex } from "gestalt"
 import { useMediaQuery } from 'react-responsive'
 import Icon from "geru-components/dist/Icon"
 import { colors } from 'geru-components/dist/utils'
@@ -147,6 +147,7 @@ function PanelsList() {
                           <PanelListItem
                             label={panelListItem.label}
                             name={panelListItem.name}
+                            image={panelListItem.image}
                             key={index}
                             icon={panelListItem.icon}
                             activePanel={activePanel}
@@ -170,6 +171,7 @@ function PanelsList() {
           <PanelListItem
             label={panelListItem.label}
             name={panelListItem.name}
+            image={panelListItem.image}
             key={panelListItem.name}
             icon={panelListItem.icon}
             activePanel={activePanel}
@@ -180,7 +182,7 @@ function PanelsList() {
   )
 }
 
-function PanelListItem({ label, icon, activePanel, name }: any) {
+function PanelListItem({ label, icon, activePanel, name, image }: any) {
     
     const { setActivePanel, setActiveSubMenu } = useAppContext()
     const setIsSidebarOpen = useSetIsSidebarOpen()
@@ -211,7 +213,16 @@ function PanelListItem({ label, icon, activePanel, name }: any) {
                     justifyContent='center'
                 >
                   <Box display="flex" justifyContent="center">
-                    <Icon size={24} color={'white'} icon={icon} />
+                    
+                    {
+                        image ? (
+                          <Box height={24} width={24}>
+                              <Image alt={label} naturalHeight={1} naturalWidth={1} src={image} />
+                          </Box>
+                        ) : (
+                          <Icon size={24} color={'white'} icon={icon} />
+                        )
+                    }
                   </Box>
                   <div style={{ height: 4 }} />
                     {

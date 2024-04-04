@@ -128,8 +128,7 @@ function PanelsList() {
                             wrap
                             width={48} 
                             rounding="circle"
-                            color="transparentDarkGray"
-                          >
+                            color="transparentDarkGray"                       >
                             <GestaltIcon 
                               icon="cancel"
                               accessibilityLabel="close"

@@ -18,6 +18,7 @@ import Stickers from "./Stickers"
 import Mydesign from "./Mydesign"
 import nft from "./nft"
 import Pixabay from "./Pixabay"
+import openai from "./openai"
 
 export default {
   StaticText: TextProperties,
@@ -40,4 +41,5 @@ export default {
   Stickers: Stickers,
   Mydesign: Mydesign,
   nft: nft,
+  openai: openai,
 }

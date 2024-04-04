@@ -51,6 +51,12 @@ export const BASE_ITEMS = [
         name: "nft",
         label: "NFT",
         icon: "Icon_Nft",
+    },
+    {
+        id: "openai",
+        name: "openai",
+        label: "Dall-e",
+        icon: "Dall-e",
     }
 ]
 
@@ -63,4 +69,5 @@ export enum PanelType {
   UPLOADS = "Uploads",
   ARTWORKS = "Artworks",
   TEXT = "Text",
+  DALLE = "Dall-e"
 }
